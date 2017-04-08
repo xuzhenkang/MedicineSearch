@@ -4,7 +4,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 
 public class MyMouseOnTableAdapter extends MouseAdapter {
 	private JTable jTable;
