@@ -8,11 +8,9 @@ import javax.swing.JTextArea;
 
 public class MyMouseOnTableAdapter extends MouseAdapter {
 	private JTable jTable;
-	private JTextArea jTextArea;
 
-	public MyMouseOnTableAdapter(JTable jTable, JTextArea jTextArea) {
+	public MyMouseOnTableAdapter(JTable jTable) {
 		this.jTable = jTable;
-		this.jTextArea = jTextArea;
 	}
 
 	@Override
@@ -20,6 +18,11 @@ public class MyMouseOnTableAdapter extends MouseAdapter {
 		int selectedRow = jTable.getSelectedRow();
 		String message = jTable.getName() + " pressed " + selectedRow + " row selected!";
 		System.out.println(message);
-		jTextArea.setText(message + "中文测试");
+		//jTextArea.setText(message + "中文测试" + "");
+		
+		if (jTable.getName().equals("LeftTable")) {
+		} else if (jTable.getName().equals("MainTable")) {
+			
+		}
 	}
 }
