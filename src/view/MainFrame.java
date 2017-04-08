@@ -43,23 +43,24 @@ public class MainFrame extends JFrame {
 
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
-		this.pattern = Pattern.compile(keyword);
-		this.matcher = pattern.matcher(text);
+		this.updateMatcherPattern(keyword, text);
 	}
 
 	public void setText(String text) {
 		this.text = text;
-		this.pattern = Pattern.compile(keyword);
-		this.matcher = pattern.matcher(text);
+		this.updateMatcherPattern(keyword, text);
+	}
+	public void setKeywordAndText(String keyword, String text) {
+		this.keyword = keyword;
+		this.text = text;
+		this.updateMatcherPattern(keyword, text);
 	}
 
 	public Matcher getMatcher() {
 		return matcher;
 	}
 	
-	public void setKeywordAndText(String keyword, String text) {
-		this.keyword = keyword;
-		this.text = text;
+	private void updateMatcherPattern(String keyword, String text) {
 		this.pattern = Pattern.compile(keyword);
 		this.matcher = pattern.matcher(text);
 	}

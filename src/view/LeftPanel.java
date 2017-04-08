@@ -7,8 +7,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 public class LeftPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -25,6 +23,7 @@ public class LeftPanel extends JPanel {
 	private JScrollPane lMainScrollPane; // 左侧面板中的右侧面板中的Scroll面板
 	private JLabel leftLabel; // 左侧面板中的左侧面板的北侧标签面板中的标签组件
 	private JLabel mainLabel; // 左侧面板中的右侧面板的北侧标签面板中的标签组件
+	
 	private Object[][] leftData; // 左侧面板中的左侧面板中表格的数据
 	private Object[][] mainData; // 左侧面板中的右侧面板中表格的数据
 
@@ -63,15 +62,7 @@ public class LeftPanel extends JPanel {
 		// 初始化主面板的keyword
 		mainFrame.keyword = (String) leftTable.getValueAt(leftTable.getSelectedRow(), 0);
 		// 设定左侧Table行改变的时候的监听
-		leftTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			// 当发生改变的时候，调用该方法：valueChanged
-			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				mainFrame.setKeyword((String) leftTable.getValueAt(e.getLastIndex(), 0));// e.getLastIndex()返回改变后的Table的行索引
-				// 若text的内容发生变化，应该写在这里
-				mainFrame.setText(mainFrame.rightPane.getjTextArea().getText());
-			}
-		});
+		leftTable.getSelectionModel().addListSelectionListener(new MyListSelectionListener(leftTable, mainFrame));
 		lLeftScrollPane = new JScrollPane(leftTable, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		lleftPanel.add(lLeftScrollPane, BorderLayout.CENTER);
