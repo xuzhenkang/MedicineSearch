@@ -62,7 +62,7 @@ public class MainFrame extends JFrame {
 		rightNorthPanel.add(new JLabel(""));
 		rightNorthPanel.add(rightLabel);
 		rightNorthPanel.add(searchNextButton);
-		searchNextButton.addActionListener(new MyButtonActionListener());
+		searchNextButton.addActionListener(new MyButtonActionListener(jTextArea));
 		rightPanel.add(rightNorthPanel, BorderLayout.NORTH);
 		jTextArea.setEditable(false); // 设置不可编辑
 		jTextArea.setText("Read Only o asdf ");
@@ -85,7 +85,7 @@ public class MainFrame extends JFrame {
 		leftTable.setName("LeftTable");
 		leftTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);// 仅可以单选
 		leftTable.setRowSelectionInterval(0, 0);
-		leftTable.addMouseListener(new MyMouseOnTableAdapter(leftTable));
+		leftTable.addMouseListener(new MyMouseOnTableAdapter(leftTable, jTextArea));
 		lLeftScrollPane = new JScrollPane(leftTable, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		lleftPanel.add(lLeftScrollPane, BorderLayout.CENTER);
@@ -104,7 +104,7 @@ public class MainFrame extends JFrame {
 		mainTable.setName("MainTable");
 		mainTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // 仅可以单选
 		mainTable.setRowSelectionInterval(0, 0);
-		mainTable.addMouseListener(new MyMouseOnTableAdapter(mainTable));
+		mainTable.addMouseListener(new MyMouseOnTableAdapter(mainTable, jTextArea));
 		lMainScrollPane = new JScrollPane(mainTable);
 		lMainPanel.add(lMainScrollPane, BorderLayout.CENTER);
 		lMainPanel.setPreferredSize(new Dimension(267, 500));
@@ -161,41 +161,5 @@ public class MainFrame extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 	}
-
-	class MyMouseOnTableAdapter extends MouseAdapter {
-		private JTable jTable;
-
-		public MyMouseOnTableAdapter(JTable jTable) {
-			this.jTable = jTable;
-		}
-
-		@Override
-		public void mousePressed(MouseEvent e) {
-			int selectedRow = jTable.getSelectedRow();
-			String message = jTable.getName() + " pressed " + selectedRow + " row selected!";
-			System.out.println(message);
-			jTextArea.setText(message + "中文测试");
-		}
-	}
-
-	class MyButtonActionListener implements ActionListener {
-		private JTable jTable;
-		public MyButtonActionListener(JTable jTable) {
-			this.jTable = jTable;
-		}
-		public MyButtonActionListener(){}
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			/*没有用这句*/
-			if (this.jTable != null)
-				jTable.setRowSelectionInterval(0, jTable.getSelectedRow() + 1);
-			
-			jTextArea.select(0, 5);
-			jTextArea.requestFocus();
-			
-			// 判断是否有下一个，如果没有打印给出下面的提示框
-			//JOptionPane.showMessageDialog(MainFrame.this, "没有找到下一个", "提示", JOptionPane.CLOSED_OPTION);
-		}
-
-	}
+	
 }
