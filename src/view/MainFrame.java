@@ -1,10 +1,13 @@
 package view;
 
 import java.awt.GridLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -33,11 +36,13 @@ public class MainFrame extends JFrame {
 		// 向JFrame面板中添加面板组件
 		this.add(leftPane);
 		this.add(rightPane);
+		this.addWindowListener(new MyWindowAdapter());
 		this.setTitle("基础检测子系统");
 		this.setSize(800, 600);
 		this.setResizable(false);
 		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 	}
 
