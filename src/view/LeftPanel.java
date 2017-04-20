@@ -2,14 +2,14 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.util.LinkedList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import model.Keyword;
+import model.KeywordList;
+import model.MedicineBookList;
 
 public class LeftPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -30,23 +30,6 @@ public class LeftPanel extends JPanel {
 	private Object[][] leftData; // 左侧面板中的左侧面板中表格的数据
 	private Object[][] mainData; // 左侧面板中的右侧面板中表格的数据
 	
-	// 加载数据 要写到模型层或控制层
-	private void loadData() {
-		// 创建显示数据
-		leftData = new Object[50][2];
-		for (int i = 0; i < leftData.length; i++) {
-			leftData[i][0] = "凤凰网";
-			leftData[i][1] = "Sue";
-		}
-		mainData = new Object[50][4];
-		for (int i = 0; i < mainData.length; i++) {
-			mainData[i][0] = "本草纲目本草纲目本草纲目本草纲目本草纲目本草纲目";
-			mainData[i][1] = "李时珍";
-			mainData[i][2] = "明";
-			mainData[i][3] = "1518年";
-		}
-	}
-
 	public LeftPanel(MainFrame mainFrame) {
 		this.setLayout(new BorderLayout());
 		lMainPanel = new JPanel(new BorderLayout());
@@ -55,9 +38,9 @@ public class LeftPanel extends JPanel {
 		mainLabel = new JLabel("中医文献");
 		leftLabelPanel = new JPanel();
 		mainLabelPanel = new JPanel();
-
-		loadData();
-
+		// 加载左侧表格数据
+		leftData = new KeywordList().toArray();
+		
 		// 左侧Panel
 		leftLabelPanel.add(leftLabel);
 		lleftPanel.add(leftLabelPanel, BorderLayout.NORTH);
@@ -65,7 +48,8 @@ public class LeftPanel extends JPanel {
 		// 初始化主面板的keyword
 		mainFrame.keyword = (String) leftTable.getValueAt(leftTable.getSelectedRow(), 0);
 		// 设定左侧Table行改变的时候的监听
-		leftTable.getSelectionModel().addListSelectionListener(new MyListSelectionListener(leftTable, mainFrame));
+		MyListSelectionListener mlsl = new MyListSelectionListener(leftTable, mainFrame);
+		leftTable.getSelectionModel().addListSelectionListener(mlsl);
 		lLeftScrollPane = new JScrollPane(leftTable, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		lleftPanel.add(lLeftScrollPane, BorderLayout.CENTER);
@@ -74,7 +58,10 @@ public class LeftPanel extends JPanel {
 		// 中间Panel
 		mainLabelPanel.add(mainLabel);
 		lMainPanel.add(mainLabelPanel, BorderLayout.NORTH);
+		// 加载中间表格的数据
+		mainData = new MedicineBookList(mainFrame.keyword).toArray();
 		mainTable = new MyJTable(mainData, mainColumnNames, "MainTable");
+		
 		lMainScrollPane = new JScrollPane(mainTable);
 		lMainPanel.add(lMainScrollPane, BorderLayout.CENTER);
 		lMainPanel.setPreferredSize(new Dimension(267, 500));
@@ -86,4 +73,21 @@ public class LeftPanel extends JPanel {
 	public JTable getLeftTable() {
 		return leftTable;
 	}
+	public void setMainTable(MyJTable mainTable) {
+		this.mainTable = mainTable;
+	}
+	public void setMainData(Object[][] mainData) {
+		this.mainData = mainData;
+	}
+	public String[] getMainColumnNames() {
+		return mainColumnNames;
+	}
+	public JPanel getlMainPanel() {
+		return lMainPanel;
+	}
+	public void setlMainScrollPane(JScrollPane lMainScrollPane) {
+		this.lMainScrollPane = lMainScrollPane;
+	}
+	
+	
 }

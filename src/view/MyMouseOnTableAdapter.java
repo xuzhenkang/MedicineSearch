@@ -20,8 +20,8 @@ public class MyMouseOnTableAdapter extends MouseAdapter {
 		//jTextArea.setText(message + "÷–Œƒ≤‚ ‘" + "");
 		
 		if (jTable.getName().equals("LeftTable")) {
-		} else if (jTable.getName().equals("MainTable")) {
 			
+		} else if (jTable.getName().equals("MainTable")) {
 		}
 	}
 }

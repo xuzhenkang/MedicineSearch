@@ -1,13 +1,10 @@
 package view;
 
 import java.awt.GridLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -55,6 +52,7 @@ public class MainFrame extends JFrame {
 		this.text = text;
 		this.updateMatcherPattern(keyword, text);
 	}
+	
 	public void setKeywordAndText(String keyword, String text) {
 		this.keyword = keyword;
 		this.text = text;
