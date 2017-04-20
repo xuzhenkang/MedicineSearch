@@ -69,6 +69,7 @@ public class DataLoader {
 				String author = row[1].getContents();
 				String dynasty = row[2].getContents();
 				String year = row[3].getContents();
+				
 				return new MedicineBook(bookName, author, dynasty, year);
 			}
 		}

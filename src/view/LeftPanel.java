@@ -19,7 +19,7 @@ public class LeftPanel extends JPanel {
 	private JPanel lMainPanel; // 左侧面板中的右侧面板
 	// 表头
 	private String[] leftColumnNames = { "关键字", "文献数" }; // 左侧面板中的左侧面板中表格的表头
-	private String[] mainColumnNames = { "中医文献名", "作者", "朝代", "年份" }; // 左侧面板中的右侧面板中表格的表头
+	private String[] mainColumnNames = { "中医文献名", "作者", "朝代", "年份"}; // 左侧面板中的右侧面板中表格的表头
 	private JPanel leftLabelPanel; // 左侧面板中的左侧面板中的标签面板
 	private JPanel mainLabelPanel; // 左侧面板中的右侧面板中的标签面板
 	private JScrollPane lLeftScrollPane; // 左侧面板中的左侧面板中的Scroll面板
@@ -48,7 +48,7 @@ public class LeftPanel extends JPanel {
 		// 初始化主面板的keyword
 		mainFrame.keyword = (String) leftTable.getValueAt(leftTable.getSelectedRow(), 0);
 		// 设定左侧Table行改变的时候的监听
-		MyListSelectionListener mlsl = new MyListSelectionListener(leftTable, mainFrame);
+		MyLeftListSelectionListener mlsl = new MyLeftListSelectionListener(leftTable, mainFrame);
 		leftTable.getSelectionModel().addListSelectionListener(mlsl);
 		lLeftScrollPane = new JScrollPane(leftTable, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -61,6 +61,7 @@ public class LeftPanel extends JPanel {
 		// 加载中间表格的数据
 		mainData = new MedicineBookList(mainFrame.keyword).toArray();
 		mainTable = new MyJTable(mainData, mainColumnNames, "MainTable");
+		mainTable.getSelectionModel().addListSelectionListener(new MyMainListSelectionListener(mainTable, mainFrame));
 		
 		lMainScrollPane = new JScrollPane(mainTable);
 		lMainPanel.add(lMainScrollPane, BorderLayout.CENTER);
@@ -70,23 +71,17 @@ public class LeftPanel extends JPanel {
 		this.add(lleftPanel, BorderLayout.WEST);
 		this.add(lMainPanel, BorderLayout.EAST);
 	}
-	public JTable getLeftTable() {
-		return leftTable;
+
+	public MyJTable getMainTable() {
+		return mainTable;
 	}
-	public void setMainTable(MyJTable mainTable) {
-		this.mainTable = mainTable;
-	}
-	public void setMainData(Object[][] mainData) {
-		this.mainData = mainData;
-	}
+
 	public String[] getMainColumnNames() {
 		return mainColumnNames;
 	}
-	public JPanel getlMainPanel() {
-		return lMainPanel;
-	}
-	public void setlMainScrollPane(JScrollPane lMainScrollPane) {
-		this.lMainScrollPane = lMainScrollPane;
+
+	public MyJTable getLeftTable() {
+		return leftTable;
 	}
 	
 	

@@ -11,6 +11,7 @@ public class MainFrame extends JFrame {
 	public LeftPanel leftPane;
 	public RightPanel rightPane;
 	public String keyword;
+	public String bookName;
 	public String text;
 	private Pattern pattern;
 	private Matcher matcher;

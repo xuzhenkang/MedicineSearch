@@ -12,12 +12,13 @@ public class MedicineBookList extends ModelList {
 	}
 	@Override
 	public Object[][] toArray() {
-		Object[][] result = new Object[list.size()][4];
+		Object[][] result = new Object[list.size()][5];
 		for (int i = 0; i < list.size(); i++) {
 			result[i][0] = ((MedicineBook)list.get(i)).getBookName();
 			result[i][1] = ((MedicineBook)list.get(i)).getAuthor();
 			result[i][2] = ((MedicineBook)list.get(i)).getDynasty();
 			result[i][3] = ((MedicineBook)list.get(i)).getYear();
+			result[i][4] = ((MedicineBook)list.get(i)).getBookName();
 		}
 		return result;
 	}
