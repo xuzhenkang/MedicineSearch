@@ -19,7 +19,7 @@ public class LeftPanel extends JPanel {
 	private JPanel lMainPanel; // 左侧面板中的右侧面板
 	// 表头
 	private String[] leftColumnNames = { "关键字", "文献数" }; // 左侧面板中的左侧面板中表格的表头
-	private String[] mainColumnNames = { "中医文献名", "作者", "朝代", "年份"}; // 左侧面板中的右侧面板中表格的表头
+	private String[] mainColumnNames = { "中医文献名", "作者", "朝代", "年份" }; // 左侧面板中的右侧面板中表格的表头
 	private JPanel leftLabelPanel; // 左侧面板中的左侧面板中的标签面板
 	private JPanel mainLabelPanel; // 左侧面板中的右侧面板中的标签面板
 	private JScrollPane lLeftScrollPane; // 左侧面板中的左侧面板中的Scroll面板

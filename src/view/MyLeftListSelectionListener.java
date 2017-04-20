@@ -32,6 +32,8 @@ public class MyLeftListSelectionListener implements ListSelectionListener {
 		mainFrame.leftPane.getMainTable().setModel(dtm);
 //		mainFrame.leftPane.getMainTable().validate();
 		mainFrame.leftPane.getMainTable().updateUI();
+		if (mainFrame.leftPane.getMainTable().getRowCount() > 0)
+			mainFrame.leftPane.getMainTable().setRowSelectionInterval(0, 0);
 //		mainFrame.leftPane.getMainTable().repaint();
 	}
 

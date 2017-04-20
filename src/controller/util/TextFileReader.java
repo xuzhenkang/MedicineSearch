@@ -10,7 +10,6 @@ import model.Book;
 public class TextFileReader {
 	private File file;
 	public TextFileReader() {
-		
 		this.file = new File("data/2/");
 	}
 	public Book getBook(String bookName) {
@@ -23,7 +22,7 @@ public class TextFileReader {
 			while ((b = br.read()) != -1) {
 				context.append((char)b);
 			}
-			System.out.println(context.toString());
+			//System.out.println(context.toString());
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -41,8 +40,8 @@ public class TextFileReader {
 	private File getBookFile(String bookName) {
 		File[] subFiles = file.listFiles();
 		for (File subFile : subFiles) {
-			if (subFile.isFile() && subFile.getName().equals(bookName + ".txt")) {
-				System.out.println(subFile.getName());
+			if (subFile.isFile() && subFile.getName().substring(5).equals(bookName + ".txt")) {
+				//System.out.println(subFile.getName());
 				return subFile;
 			}
 		}

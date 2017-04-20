@@ -31,7 +31,7 @@ public class RightPanel extends JPanel {
 		this.add(rightNorthPanel, BorderLayout.NORTH);
 		jTextArea.setEditable(false); // 设置不可编辑
 		
-		new TextFileReader().getBook("9194-竹林女科证治");
+		//new TextFileReader().getBook("9194-竹林女科证治");
 		
 		jTextArea.setText("凤凰网资讯、凤凰网新闻24小时提供大陆、台湾、香港、国际重大新闻资讯,\n凤凰聚焦、热追踪、凤凰知道紧跟时事热点,军事、历史、社");
 		rightScrollPane = new JScrollPane(jTextArea);

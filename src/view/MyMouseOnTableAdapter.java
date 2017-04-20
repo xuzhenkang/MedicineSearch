@@ -16,7 +16,7 @@ public class MyMouseOnTableAdapter extends MouseAdapter {
 	public void mousePressed(MouseEvent e) {
 		int selectedRow = jTable.getSelectedRow();
 		String message = jTable.getName() + " pressed " + selectedRow + " row selected!";
-		System.out.println(message);
+//		System.out.println(message);
 		//jTextArea.setText(message + "÷–Œƒ≤‚ ‘" + "");
 		
 		if (jTable.getName().equals("LeftTable")) {
