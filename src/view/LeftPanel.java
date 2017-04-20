@@ -2,11 +2,14 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.util.LinkedList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
+import model.Keyword;
 
 public class LeftPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -26,7 +29,7 @@ public class LeftPanel extends JPanel {
 	
 	private Object[][] leftData; // 左侧面板中的左侧面板中表格的数据
 	private Object[][] mainData; // 左侧面板中的右侧面板中表格的数据
-
+	
 	// 加载数据 要写到模型层或控制层
 	private void loadData() {
 		// 创建显示数据
