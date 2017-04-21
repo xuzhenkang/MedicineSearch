@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 
 import model.list.KeywordList;
 import model.list.MedicineBookList;

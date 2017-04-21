@@ -1,7 +1,5 @@
 package model;
 
-import javax.swing.table.DefaultTableModel;
-
 public class Keyword{
 	private String keyword;
 	private Integer num;
