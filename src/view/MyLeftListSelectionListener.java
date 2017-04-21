@@ -6,7 +6,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import model.MedicineBookList;
- 
+
 public class MyLeftListSelectionListener implements ListSelectionListener {
 	private JTable jLeftTable;
 	private MainFrame mainFrame;
