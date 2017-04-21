@@ -6,6 +6,10 @@ import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 
+import view.adapter.MyWindowAdapter;
+import view.panel.LeftPanel;
+import view.panel.RightPanel;
+
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public LeftPanel leftPane;

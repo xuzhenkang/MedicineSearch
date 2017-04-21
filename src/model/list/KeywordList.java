@@ -1,8 +1,9 @@
-package model;
+package model.list;
 
 import java.util.List;
 
 import controller.DataLoader;
+import model.Keyword;
 
 public class KeywordList extends ModelList {
 	private List<Keyword> list = DataLoader.getInstance().loadKeywordList();

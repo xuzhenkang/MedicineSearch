@@ -1,10 +1,11 @@
-package view;
+package view.listener;
 
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import controller.util.TextFileReader;
+import controller.TextFileReader;
+import view.MainFrame;
 
 public class MyMainListSelectionListener implements ListSelectionListener {
 

@@ -1,11 +1,12 @@
-package view;
+package view.listener;
 
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-import model.MedicineBookList;
+import model.list.MedicineBookList;
+import view.MainFrame;
 
 public class MyLeftListSelectionListener implements ListSelectionListener {
 	private JTable jLeftTable;

@@ -1,4 +1,4 @@
-package view;
+package view.panel;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -9,7 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import controller.util.TextFileReader;
+import controller.TextFileReader;
+import view.MainFrame;
+import view.component.MyJTable;
+import view.listener.MyButtonActionListener;
 
 public class RightPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

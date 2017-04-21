@@ -1,4 +1,4 @@
-package view;
+package view.panel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -8,8 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import model.KeywordList;
-import model.MedicineBookList;
+import model.list.KeywordList;
+import model.list.MedicineBookList;
+import view.MainFrame;
+import view.component.MyJTable;
+import view.listener.MyLeftListSelectionListener;
+import view.listener.MyMainListSelectionListener;
 
 public class LeftPanel extends JPanel {
 	private static final long serialVersionUID = 1L;

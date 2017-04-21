@@ -1,4 +1,4 @@
-package view;
+package view.listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,6 +7,8 @@ import java.util.regex.Matcher;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
+
+import view.MainFrame;
 
 public class MyButtonActionListener implements ActionListener {
 	private JTextArea jTextArea;

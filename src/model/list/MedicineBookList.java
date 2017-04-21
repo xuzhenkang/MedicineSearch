@@ -1,8 +1,9 @@
-package model;
+package model.list;
 
 import java.util.List;
 
 import controller.DataLoader;
+import model.MedicineBook;
 
 public class MedicineBookList extends ModelList {
 	private List<MedicineBook> list = null;
