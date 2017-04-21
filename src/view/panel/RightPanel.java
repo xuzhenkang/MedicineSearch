@@ -46,7 +46,7 @@ public class RightPanel extends JPanel {
 		mainFrame.setText(jTextArea.getText());
 		// 该句一定要放在matcher = pattern.matcher(text);之后，否则空指针异常
 		searchNextButton.addActionListener(
-				new MyButtonActionListener(mainFrame, jTextArea));
+				new MyButtonActionListener(mainFrame));
 	}
 
 	public JTextArea getjTextArea() {

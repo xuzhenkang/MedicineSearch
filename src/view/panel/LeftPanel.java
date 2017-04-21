@@ -29,10 +29,10 @@ public class LeftPanel extends JPanel {
 	private JScrollPane lMainScrollPane; // 左侧面板中的右侧面板中的Scroll面板
 	private JLabel leftLabel; // 左侧面板中的左侧面板的北侧标签面板中的标签组件
 	private JLabel mainLabel; // 左侧面板中的右侧面板的北侧标签面板中的标签组件
-	
+
 	private Object[][] leftData; // 左侧面板中的左侧面板中表格的数据
 	private Object[][] mainData; // 左侧面板中的右侧面板中表格的数据
-	
+
 	public LeftPanel(MainFrame mainFrame) {
 		this.setLayout(new BorderLayout());
 		lMainPanel = new JPanel(new BorderLayout());
@@ -43,7 +43,7 @@ public class LeftPanel extends JPanel {
 		mainLabelPanel = new JPanel();
 		// 加载左侧表格数据
 		leftData = new KeywordList().toArray();
-		
+
 		// 左侧Panel
 		leftLabelPanel.add(leftLabel);
 		lleftPanel.add(leftLabelPanel, BorderLayout.NORTH);
@@ -65,7 +65,7 @@ public class LeftPanel extends JPanel {
 		mainData = new MedicineBookList(mainFrame.keyword).toArray();
 		mainTable = new MyJTable(mainData, mainColumnNames, "MainTable");
 		mainTable.getSelectionModel().addListSelectionListener(new MyMainListSelectionListener(mainTable, mainFrame));
-		
+
 		lMainScrollPane = new JScrollPane(mainTable);
 		lMainPanel.add(lMainScrollPane, BorderLayout.CENTER);
 		lMainPanel.setPreferredSize(new Dimension(337, 500));
@@ -82,10 +82,4 @@ public class LeftPanel extends JPanel {
 	public String[] getMainColumnNames() {
 		return mainColumnNames;
 	}
-
-	public MyJTable getLeftTable() {
-		return leftTable;
-	}
-	
-	
 }

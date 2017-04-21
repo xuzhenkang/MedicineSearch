@@ -48,10 +48,10 @@ public class MainFrame extends JFrame {
 		this.setLocationRelativeTo(null);
 	}
 
-	public void setKeyword(String keyword) {
+/*	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 		this.updateMatcherPattern(keyword, text);
-	}
+	}*/
 
 	public void setText(String text) {
 		this.text = text;
