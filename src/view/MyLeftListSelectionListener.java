@@ -23,11 +23,12 @@ public class MyLeftListSelectionListener implements ListSelectionListener {
 			String text = mainFrame.rightPane.getjTextArea().getText();
 			mainFrame.setKeywordAndText(keyword, text);
 			// 更新数据
-			Object[][] MedicineBookList = new MedicineBookList(mainFrame.keyword).toArray();
+			Object[][] medicineBookList = new MedicineBookList(mainFrame.keyword).toArray();
+			System.out.println("哈哈哈哈哈" + medicineBookList);
 			// 列名
 			String[] mainColumnNames = mainFrame.leftPane.getMainColumnNames();
 			DefaultTableModel dtm = new DefaultTableModel();
-			dtm.setDataVector(MedicineBookList, mainColumnNames);
+			dtm.setDataVector(medicineBookList, mainColumnNames);
 			mainFrame.leftPane.getMainTable().setModel(dtm);
 			if (mainFrame.leftPane.getMainTable().getRowCount() > 0)
 				mainFrame.leftPane.getMainTable().setRowSelectionInterval(0, 0);

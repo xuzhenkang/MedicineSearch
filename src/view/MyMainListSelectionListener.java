@@ -20,12 +20,14 @@ public class MyMainListSelectionListener implements ListSelectionListener {
 	public void valueChanged(ListSelectionEvent e) {
 		if (!e.getValueIsAdjusting()) { // 若e.getValueIsAdjusting()值为true，则说明鼠标按下操作。若不加此判断，则鼠标按下和抬起都会执行
 			int index = jMainTable.getSelectedRow() > -1 ? jMainTable.getSelectedRow() : 0;
-			String bookName = (String) jMainTable.getValueAt(index, 0); // 获取书名
-			String context = TextFileReader.getInstance().getBook(bookName).getContext();
+			String context = "";
+			if (jMainTable.getRowCount() > 0) {
+				String bookName = (String) jMainTable.getValueAt(index, 0); // 获取书名
+				context = TextFileReader.getInstance().getBook(bookName).getContext();
+			}
 			mainFrame.rightPane.getjTextArea().setText(context);
 			mainFrame.rightPane.getjTextArea().setCaretPosition(0);
 			mainFrame.setKeywordAndText(mainFrame.keyword, context);
-			
 		}
 	}
 
