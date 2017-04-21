@@ -18,23 +18,20 @@ public class MyLeftListSelectionListener implements ListSelectionListener {
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		String keyword = (String) jLeftTable.getValueAt(e.getLastIndex(), 0);// e.getLastIndex()返回改变后的Table的行索引
-		// 这里看需求。若text的内容发生变化，应该写在这里
-		String text = mainFrame.rightPane.getjTextArea().getText();
-		mainFrame.setKeywordAndText(keyword, text);
-		// 更新数据
-		Object[][] MedicineBookList = new MedicineBookList(mainFrame.keyword).toArray();
-		// 列名
-		String[] mainColumnNames = mainFrame.leftPane.getMainColumnNames();
-		DefaultTableModel dtm = new DefaultTableModel();
-		dtm.setDataVector(MedicineBookList, mainColumnNames);
-//		mainFrame.leftPane.getMainTable().removeAll();
-		mainFrame.leftPane.getMainTable().setModel(dtm);
-//		mainFrame.leftPane.getMainTable().validate();
-		mainFrame.leftPane.getMainTable().updateUI();
-		if (mainFrame.leftPane.getMainTable().getRowCount() > 0)
-			mainFrame.leftPane.getMainTable().setRowSelectionInterval(0, 0);
-//		mainFrame.leftPane.getMainTable().repaint();
+		if (!e.getValueIsAdjusting()) { // 若e.getValueIsAdjusting()值为true，则说明鼠标按下操作。若不加此判断，则鼠标按下和抬起都会执行
+			String keyword = (String) jLeftTable.getValueAt(jLeftTable.getSelectedRow(), 0);
+			String text = mainFrame.rightPane.getjTextArea().getText();
+			mainFrame.setKeywordAndText(keyword, text);
+			// 更新数据
+			Object[][] MedicineBookList = new MedicineBookList(mainFrame.keyword).toArray();
+			// 列名
+			String[] mainColumnNames = mainFrame.leftPane.getMainColumnNames();
+			DefaultTableModel dtm = new DefaultTableModel();
+			dtm.setDataVector(MedicineBookList, mainColumnNames);
+			mainFrame.leftPane.getMainTable().setModel(dtm);
+			if (mainFrame.leftPane.getMainTable().getRowCount() > 0)
+				mainFrame.leftPane.getMainTable().setRowSelectionInterval(0, 0);
+		}
 	}
 
 }

@@ -30,10 +30,12 @@ public class RightPanel extends JPanel {
 		rightNorthPanel.add(searchNextButton);
 		this.add(rightNorthPanel, BorderLayout.NORTH);
 		jTextArea.setEditable(false); // 设置不可编辑
-		
-		//new TextFileReader().getBook("9194-竹林女科证治");
-		
-		jTextArea.setText("凤凰网资讯、凤凰网新闻24小时提供大陆、台湾、香港、国际重大新闻资讯,\n凤凰聚焦、热追踪、凤凰知道紧跟时事热点,军事、历史、社");
+		MyJTable mainTable = mainFrame.leftPane.getMainTable();
+		String bookName = (String) mainTable.getValueAt(mainTable.getSelectedRow(), 0); // 获取书名
+		String context = TextFileReader.getInstance().getBook(bookName).getContext();
+		jTextArea.setText(context);
+		jTextArea.setCaretPosition(0);
+		mainFrame.setKeywordAndText(mainFrame.keyword, context);
 		rightScrollPane = new JScrollPane(jTextArea);
 		this.add(rightScrollPane, BorderLayout.CENTER);
 		// 初始化text
@@ -41,7 +43,7 @@ public class RightPanel extends JPanel {
 		mainFrame.setText(jTextArea.getText());
 		// 该句一定要放在matcher = pattern.matcher(text);之后，否则空指针异常
 		searchNextButton.addActionListener(
-				new MyButtonActionListener(mainFrame, jTextArea, mainFrame.leftPane.getLeftTable(), mainFrame.getMatcher()));
+				new MyButtonActionListener(mainFrame, jTextArea));
 	}
 
 	public JTextArea getjTextArea() {

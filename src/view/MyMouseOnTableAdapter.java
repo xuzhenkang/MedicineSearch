@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JTable;
 
+@SuppressWarnings("unused")
 public class MyMouseOnTableAdapter extends MouseAdapter {
 	private JTable jTable;
 
@@ -14,14 +15,11 @@ public class MyMouseOnTableAdapter extends MouseAdapter {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		int selectedRow = jTable.getSelectedRow();
-		String message = jTable.getName() + " pressed " + selectedRow + " row selected!";
-//		System.out.println(message);
-		//jTextArea.setText(message + "÷–Œƒ≤‚ ‘" + "");
-		
-		if (jTable.getName().equals("LeftTable")) {
-			
-		} else if (jTable.getName().equals("MainTable")) {
-		}
+		//int selectedRow = jTable.getSelectedRow();
+
+//		if (jTable.getName().equals("LeftTable")) {
+//			
+//		} else if (jTable.getName().equals("MainTable")) {
+//		}
 	}
 }
