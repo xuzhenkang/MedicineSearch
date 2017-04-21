@@ -56,7 +56,7 @@ public class LeftPanel extends JPanel {
 		lLeftScrollPane = new JScrollPane(leftTable, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		lleftPanel.add(lLeftScrollPane, BorderLayout.CENTER);
-		lleftPanel.setPreferredSize(new Dimension(130, 500));
+		lleftPanel.setPreferredSize(new Dimension(160, 500));
 
 		// 中间Panel
 		mainLabelPanel.add(mainLabel);
@@ -68,7 +68,7 @@ public class LeftPanel extends JPanel {
 		
 		lMainScrollPane = new JScrollPane(mainTable);
 		lMainPanel.add(lMainScrollPane, BorderLayout.CENTER);
-		lMainPanel.setPreferredSize(new Dimension(267, 500));
+		lMainPanel.setPreferredSize(new Dimension(337, 500));
 
 		// 设定布局
 		this.add(lleftPanel, BorderLayout.WEST);
