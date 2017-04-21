@@ -24,7 +24,6 @@ public class MyLeftListSelectionListener implements ListSelectionListener {
 			mainFrame.setKeywordAndText(keyword, text);
 			// 更新数据
 			Object[][] medicineBookList = new MedicineBookList(mainFrame.keyword).toArray();
-			System.out.println("哈哈哈哈哈" + medicineBookList);
 			// 列名
 			String[] mainColumnNames = mainFrame.leftPane.getMainColumnNames();
 			DefaultTableModel dtm = new DefaultTableModel();
