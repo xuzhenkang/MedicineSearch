@@ -21,8 +21,8 @@ public class MyButtonActionListener implements ActionListener {
 			int start = matcher.start();
 			int end = matcher.end();
 			//System.out.println(start + "," + end);
-			mainFrame.rightPane.getjTextArea().select(start, end);
-			mainFrame.rightPane.getjTextArea().requestFocus();
+			mainFrame.rightPanel.getjTextArea().select(start, end);
+			mainFrame.rightPanel.getjTextArea().requestFocus();
 		} else {
 			// 判断是否有下一个，如果没有打印给出下面的提示框
 			JOptionPane.showMessageDialog(this.mainFrame, "没有找到下一个", "提示", JOptionPane.CLOSED_OPTION);

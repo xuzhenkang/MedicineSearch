@@ -21,17 +21,17 @@ public class MyLeftListSelectionListener implements ListSelectionListener {
 	public void valueChanged(ListSelectionEvent e) {
 		if (!e.getValueIsAdjusting()) { // 若e.getValueIsAdjusting()值为true，则说明鼠标按下操作。若不加此判断，则鼠标按下和抬起都会执行
 			String keyword = (String) jLeftTable.getValueAt(jLeftTable.getSelectedRow(), 0);
-			String text = mainFrame.rightPane.getjTextArea().getText();
+			String text = mainFrame.rightPanel.getjTextArea().getText();
 			mainFrame.setKeywordAndText(keyword, text);
 			// 更新数据
 			Object[][] medicineBookList = new MedicineBookList(mainFrame.keyword).toArray();
 			// 列名
-			String[] mainColumnNames = mainFrame.leftPane.getMainColumnNames();
+			String[] mainColumnNames = mainFrame.leftPanel.getMainColumnNames();
 			DefaultTableModel dtm = new DefaultTableModel();
 			dtm.setDataVector(medicineBookList, mainColumnNames);
-			mainFrame.leftPane.getMainTable().setModel(dtm);
-			if (mainFrame.leftPane.getMainTable().getRowCount() > 0)
-				mainFrame.leftPane.getMainTable().setRowSelectionInterval(0, 0);
+			mainFrame.leftPanel.getMainTable().setModel(dtm);
+			if (mainFrame.leftPanel.getMainTable().getRowCount() > 0)
+				mainFrame.leftPanel.getMainTable().setRowSelectionInterval(0, 0);
 		}
 	}
 

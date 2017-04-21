@@ -33,7 +33,7 @@ public class RightPanel extends JPanel {
 		rightNorthPanel.add(searchNextButton);
 		this.add(rightNorthPanel, BorderLayout.NORTH);
 		jTextArea.setEditable(false); // 设置不可编辑
-		MyJTable mainTable = mainFrame.leftPane.getMainTable();
+		MyJTable mainTable = mainFrame.leftPanel.getMainTable();
 		String bookName = (String) mainTable.getValueAt(mainTable.getSelectedRow(), 0); // 获取书名
 		String context = TextFileReader.getInstance().getBook(bookName).getContext();
 		jTextArea.setText(context);

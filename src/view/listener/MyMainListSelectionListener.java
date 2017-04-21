@@ -26,8 +26,8 @@ public class MyMainListSelectionListener implements ListSelectionListener {
 				String bookName = (String) jMainTable.getValueAt(index, 0); // 获取书名
 				context = TextFileReader.getInstance().getBook(bookName).getContext();
 			}
-			mainFrame.rightPane.getjTextArea().setText(context);
-			mainFrame.rightPane.getjTextArea().setCaretPosition(0);
+			mainFrame.rightPanel.getjTextArea().setText(context);
+			mainFrame.rightPanel.getjTextArea().setCaretPosition(0);
 			mainFrame.setKeywordAndText(mainFrame.keyword, context);
 		}
 	}

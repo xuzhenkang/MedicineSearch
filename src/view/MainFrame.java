@@ -12,8 +12,8 @@ import view.panel.RightPanel;
 
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
-	public LeftPanel leftPane;
-	public RightPanel rightPane;
+	public LeftPanel leftPanel;
+	public RightPanel rightPanel;
 	public String keyword;
 	public String bookName;
 	public String text;
@@ -24,9 +24,9 @@ public class MainFrame extends JFrame {
 		// 初始化组件
 		// 加载数据
 		// 左侧Panel
-		this.leftPane = new LeftPanel(this);
+		this.leftPanel = new LeftPanel(this);
 		// 右侧Panel
-		this.rightPane = new RightPanel(this);
+		this.rightPanel = new RightPanel(this);
 		// 设定JFrame属性
 		this.setFrame();
 	}
@@ -36,8 +36,8 @@ public class MainFrame extends JFrame {
 		// 设定JFrame的总体布局
 		this.setLayout(new GridLayout(1, 2));
 		// 向JFrame面板中添加面板组件
-		this.add(leftPane);
-		this.add(rightPane);
+		this.add(leftPanel);
+		this.add(rightPanel);
 		this.addWindowListener(new MyWindowAdapter());
 		this.setTitle("基础检测子系统");
 		this.setSize(1000, 600);
